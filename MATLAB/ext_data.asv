@@ -1,0 +1,13 @@
+function data = ext_data(Data, type, i)
+
+if type == 0
+data = Data(1).data(: ,i);
+end
+
+if type == 1
+if i < 3
+  data =  sqrt(tube1/Data(:,i);
+else
+    data = 0;
+end
+end

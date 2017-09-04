@@ -1,0 +1,45 @@
+function tubes = get_tubes_area(data_set_x, data_set_y, tubelength1, start, finish, type)
+
+
+
+
+%set up tube data set 1
+if type == 0
+
+    
+
+tube_data = (data_set_x(start)):tubelength1/10:(data_set_x(finish));
+tube_1_points = interp1(data_set_x,data_set_y,tube_data);
+
+tube1 = trapz(tube_data(1:11),tube_1_points(1:11));
+tube2 = trapz(tube_data(11:11),tube_1_points(11:22));
+tube3 = trapz(tube_data(22:11),tube_1_points(22:33));
+tube4 = trapz(tube_data(33:11),tube_1_points(33:44));
+tube5 = trapz(tube_data(44:11),tube_1_points(44:55));
+tube6 = trapz(tube_data(55:11),tube_1_points(55:66));
+tube7 = trapz(tube_data(1:11),tube_1_points(66:77));
+tube8 = trapz(tube_data(1:11),tube_1_points(77:88));
+tube9 = trapz(tube_data(1:11),tube_1_points(88:99));
+tube10 = trapz(tube_data(1:11),tube_1_points(99:101));
+tube11 = trapz(tube_data(1:11),tube_1_points(101:111));
+
+else   
+    
+    
+tube_data = (data_set_x(1)):tubelength1/10:(data_set_x(size(data_set_x),1));
+tube_1_points = interp1(data_set_x,data_set_y,tube_data);
+
+tube1 = mean(tube_1_points(1:11));
+tube2 = mean(tube_1_points(11:22));
+tube3 = mean(tube_1_points(22:33));
+tube4 = mean(tube_1_points(33:44));
+tube5 = mean(tube_1_points(44:55));
+tube6 = mean(tube_1_points(55:66));
+tube7 = mean(tube_1_points(66:77));
+tube8 = mean(tube_1_points(77:88));
+tube9 = mean(tube_1_points(88:99));
+tube10 = mean(tube_1_points(99:101));
+tube11 = mean(tube_1_points(101:111));
+
+end
+tubes = [sqrt(tube1/pi), sqrt(tube2/pi), sqrt(tube3/pi), sqrt(tube4/pi), sqrt(tube5/pi), sqrt(tube6/pi), sqrt(tube7/pi), sqrt(tube8/pi), sqrt(tube9/pi), sqrt(tube10/pi), sqrt(tube11/pi), 0];
